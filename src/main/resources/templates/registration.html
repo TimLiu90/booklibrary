@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <title>Book Library - User Registration</title>
+
+    <!-- Global stylesheets -->
+    <link href="https://fonts.googleapis.com/css?family=Roboto:400,300,100,500,700,900" rel="stylesheet" type="text/css" />
+    <link th:href="@{/assets/css/icons/icomoon/styles.css}" rel="stylesheet" type="text/css" />
+    <link th:href="@{/assets/css/bootstrap.min.css}" rel="stylesheet" type="text/css" />
+    <link th:href="@{/assets/css/core.min.css}" rel="stylesheet" type="text/css" />
+    <link th:href="@{/assets/css/components.min.css}" rel="stylesheet" type="text/css" />
+    <link th:href="@{/assets/css/colors.min.css}" rel="stylesheet" type="text/css" />
+    <!-- /global stylesheets -->
+
+    <!-- Core JS files -->
+    <script type="text/javascript" th:src="@{/assets/js/plugins/loaders/pace.min.js}"></script>
+    <script type="text/javascript" th:src="@{/assets/js/core/libraries/jquery.min.js}"></script>
+    <script type="text/javascript" th:src="@{/assets/js/core/libraries/bootstrap.min.js}"></script>
+    <script type="text/javascript" th:src="@{/assets/js/plugins/loaders/blockui.min.js}"></script>
+    <!-- /core JS files -->
+
+    <!-- Theme JS files -->
+    <script type="text/javascript" th:src="@{/assets/js/plugins/forms/styling/uniform.min.js}"></script>
+    <script type="text/javascript" th:src="@{/assets/js/plugins/forms/styling/switchery.min.js}"></script>
+    <script type="text/javascript" th:src="@{/assets/js/plugins/forms/styling/switch.min.js}"></script>
+    <script type="text/javascript" th:src="@{/assets/js/core/app.js}"></script>
+    <script type="text/javascript" th:src="@{/assets/js/plugins/ui/ripple.min.js}"></script>
+    <script type="text/javascript" th:src="@{/assets/js/pages/form_checkboxes_radios.js}"></script>
+    <!-- /core JS files -->
+
+    <!-- Theme JS files -->
+    <script type="text/javascript" th:src="@{/assets/js/pages/login.js}"></script>
+    <!-- /theme JS files -->
+
+</head>
+
+<body class="navbar-bottom login-container">
+
+<!-- Main navbar -->
+<div class="navbar navbar-inverse bg-indigo">
+    <div class="navbar-header">
+        <a class="navbar-brand" href="/"><img th:src="@{/assets/images/logo_light.png}" alt="" /></a>
+
+        <ul class="nav navbar-nav pull-right visible-xs-block">
+            <li><a data-toggle="collapse" data-target="#navbar-mobile"><i class="icon-tree5"></i></a></li>
+        </ul>
+    </div>
+
+    <div class="navbar-collapse collapse" id="navbar-mobile">
+        <ul class="nav navbar-nav navbar-right">
+            <li>
+                <a href="#">
+                    <i class="icon-display4"></i> <span class="visible-xs-inline-block position-right"> Go to website</span>
+                </a>
+            </li>
+
+            <li>
+                <a href="#">
+                    <i class="icon-user-tie"></i> <span class="visible-xs-inline-block position-right"> Contact admin</span>
+                </a>
+            </li>
+
+            <li class="dropdown">
+                <a class="dropdown-toggle" data-toggle="dropdown">
+                    <i class="icon-cog3"></i>
+                    <span class="visible-xs-inline-block position-right"> Options</span>
+                </a>
+            </li>
+        </ul>
+    </div>
+</div>
+<!-- /main navbar -->
+
+
+<!-- Page container -->
+<div class="page-container">
+
+    <!-- Page content -->
+    <div class="page-content">
+
+        <!-- Main content -->
+        <div class="content-wrapper">
+
+            <!-- Advanced login -->
+            <form action="#" th:object="${user}" th:action="@{/register_user}" method="post" id="formRegistration">
+                <div class="panel panel-body login-form">
+                    <div class="text-center">
+                        <div class="icon-object border-success text-success"><i class="icon-plus3"></i></div>
+                        <h5 class="content-group">Create account <small class="display-block">All fields are required</small></h5>
+                    </div>
+
+                    <div class="content-divider text-muted form-group"><span>Your credentials</span></div>
+
+                    <div class="form-group has-feedback has-feedback-left" th:attrappend="class=${#fields.hasErrors('username') ? ' has-error' : ''}">
+                        <input type="text" class="form-control" placeholder="Username" th:field="*{username}" />
+                        <div class="form-control-feedback">
+                            <i class="icon-user-check text-muted"></i>
+                        </div>
+                        <span th:if="${#fields.hasErrors('username')}" class="help-block text-danger"><i class="icon-cancel-circle2 position-left"></i> <span th:errors="*{username}"></span></span>
+                    </div>
+
+                    <div class="form-group has-feedback has-feedback-left" th:attrappend="class=${#fields.hasErrors('password') ? ' has-error' : ''}">
+                        <input type="password" class="form-control" placeholder="Create password" th:field="*{password}" />
+                        <div class="form-control-feedback">
+                            <i class="icon-user-lock text-muted"></i>
+                        </div>
+                        <span th:if="${#fields.hasErrors('password')}" class="help-block text-danger"><i class="icon-cancel-circle2 position-left"></i> <span th:errors="*{password}"></span></span>
+                    </div>
+
+                    <div class="form-group has-feedback has-feedback-left" th:attrappend="class=${#fields.hasErrors('passwordAgain') ? ' has-error' : ''}">
+                        <input type="password" class="form-control" placeholder="Confirm password" th:field="*{passwordAgain}" />
+                        <div class="form-control-feedback">
+                            <i class="icon-user-lock text-muted"></i>
+                        </div>
+                        <span th:if="${#fields.hasErrors('passwordAgain')}" class="help-block text-danger"><i class="icon-cancel-circle2 position-left"></i> <span th:errors="*{passwordAgain}"></span></span>
+                    </div>
+
+                    <div class="content-divider text-muted form-group"><span>Your privacy</span></div>
+
+                    <div class="form-group has-feedback has-feedback-left" th:attrappend="class=${#fields.hasErrors('email') ? ' has-error' : ''}">
+                        <input type="text" class="form-control" placeholder="Your email" th:field="*{email}" />
+                        <div class="form-control-feedback">
+                            <i class="icon-mention text-muted"></i>
+                        </div>
+                        <span th:if="${#fields.hasErrors('email')}" class="help-block text-danger"><i class="icon-cancel-circle2 position-left"></i> <span th:errors="*{email}"></span></span>
+                    </div>
+
+                    <div class="form-group has-feedback has-feedback-left" th:attrappend="class=${#fields.hasErrors('emailAgain') ? ' has-error' : ''}">
+                        <input type="text" class="form-control" placeholder="Repeat email" th:field="*{emailAgain}" />
+                        <div class="form-control-feedback">
+                            <i class="icon-mention text-muted"></i>
+                        </div>
+                        <span th:if="${#fields.hasErrors('emailAgain')}" class="help-block text-danger"><i class="icon-cancel-circle2 position-left"></i> <span th:errors="*{emailAgain}"></span></span>
+                    </div>
+
+                    <div class="content-divider text-muted form-group"><span>Additions</span></div>
+
+                    <div class="form-group">
+
+                        <div class="checkbox" th:attrappend="class=${#fields.hasErrors('acceptTerms') ? ' has-error' : ''}">
+                            <label >
+                                <input type="checkbox" class="styled" th:field="*{acceptTerms}" />
+                                Accept <a href="#">terms of service</a>
+                            </label>
+                            <span th:if="${#fields.hasErrors('acceptTerms')}" class="help-block text-danger"><i class="icon-cancel-circle2 position-left"></i> <span th:errors="*{acceptTerms}"></span></span>
+                        </div>
+                    </div>
+
+                    <button type="submit" class="btn bg-teal btn-block btn-lg">Register <i class="icon-circle-right2 position-right"></i></button>
+                </div>
+            </form>
+            <!-- /advanced login -->
+
+        </div>
+        <!-- /main content -->
+
+    </div>
+    <!-- /page content -->
+
+</div>
+<!-- /page container -->
+
+
+</body>
+</html>

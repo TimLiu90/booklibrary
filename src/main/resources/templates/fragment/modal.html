@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" lang="en">
+
+<body>
+
+<div id="modal_book_new" class="modal fade" data-backdrop="false" th:fragment="form_book_new (book)">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h5 class="modal-title">Add new book to library</h5>
+            </div>
+
+            <div class="modal-body">
+                <h6 class="text-semibold">New Book</h6>
+                <p>Add new book to library, just need book name and ISBN here, system will fetching from online database for book details</p>
+                <hr />
+            </div>
+
+            <div class="alert alert-danger no-border" id="formBookNewErrorBar" style="display: none;">
+                <button type="button" class="close" data-dismiss="alert"><span>&times;</span><span class="sr-only">Close</span></button>
+                <span class="text-semibold">Error!</span> <span id="formBookNewErrorBarMsg">Error message.</span>
+            </div>
+
+            <form action="#" th:method="post" id="formNewBook">
+                <div class="modal-body">
+                    <div class="form-group">
+                        <label>Book ISBN</label>
+                        <input type="text" placeholder="xxxx-xxxx-xxxx" class="form-control" id="bookISBN" name="isbn"/>
+                    </div>
+                    <div class="form-group">
+                        <label>Total in library</label>
+                        <input type="number" class="form-control" id="bookTotal" name="bookTotal"/>
+                    </div>
+                </div>
+
+            </form>
+
+            <div class="modal-footer">
+                <button type="button" class="btn btn-link" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary" id="btnAddNewBook">Add new book</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>

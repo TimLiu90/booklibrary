@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorator="layouts/admin">
+<body>
+
+<th:block layout:fragment="customjs">
+    <script type="text/javascript" th:src="@{/assets/js/plugins/tables/datatables/datatables.min.js}"></script>
+    <script type="text/javascript" th:src="@{/assets/js/plugins/forms/selects/select2.min.js}"></script>
+    <script type="text/javascript" th:src="@{/pages/history.js}"></script>
+    <script type="text/javascript" th:src="@{/js/underscore-min.js}"></script>
+</th:block>
+
+<div class="content-wrapper" layout:fragment="content">
+
+    <div class="panel panel-flat">
+        <div class="panel-heading">
+            <h5 class="panel-title">Borrow History</h5>
+            <div class="heading-elements">
+                <div class="heading-btn">
+
+                </div>
+            </div>
+        </div>
+
+        <div class="panel-body">
+            This list contain all books you borrowed.
+        </div>
+
+        <div class="alert alert-success no-border" id="historyBarSuccess" style="display: none;">
+            <button type="button" class="close" data-dismiss="alert"><span>&times;</span><span class="sr-only">Close</span></button>
+            <span class="text-semibold">Success!</span> <span id="historyBarSuccessMsg">Message.</span>
+        </div>
+
+        <table class="table datatable-history">
+            <thead>
+            <tr>
+                <th>Book Name</th>
+                <th>ISBN</th>
+                <th>Borrow Date</th>
+                <th class="text-center">Actions</th>
+            </tr>
+            </thead>
+        </table>
+
+    </div>
+
+</div>
+</body>
+</html>

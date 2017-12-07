@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Book library portal</title>
+
+    <!-- Global stylesheets -->
+    <link href="https://fonts.googleapis.com/css?family=Roboto:400,300,100,500,700,900" rel="stylesheet" type="text/css" />
+    <link th:href="@{/assets/css/icons/icomoon/styles.css}" rel="stylesheet" type="text/css" />
+    <link th:href="@{/assets/css/icons/fontawesome/styles.min.css}" rel="stylesheet" type="text/css" />
+    <link th:href="@{/assets/css/bootstrap.min.css}" rel="stylesheet" type="text/css" />
+    <link th:href="@{/assets/css/core.min.css}" rel="stylesheet" type="text/css" />
+    <link th:href="@{/assets/css/components.min.css}" rel="stylesheet" type="text/css" />
+    <link th:href="@{/assets/css/colors.min.css}" rel="stylesheet" type="text/css" />
+    <!-- /global stylesheets -->
+
+    <!-- Core JS files -->
+    <script type="text/javascript" th:src="@{/assets/js/core/libraries/jquery.min.js}"></script>
+    <script type="text/javascript" th:src="@{/assets/js/core/libraries/bootstrap.min.js}"></script>
+    <script type="text/javascript" th:src="@{/js/sweetalert2.all.js}"></script>
+    <!--<script src="https://www.promisejs.org/polyfills/promise-7.0.4.min.js"></script>-->
+
+    <!-- Include a polyfill for ES6 Promises (optional) for IE11 and Android browser -->
+    <!--<script src="https://cdnjs.cloudflare.com/ajax/libs/core-js/2.4.1/core.js"></script>-->
+    <!-- /core JS files -->
+
+    <!-- Theme JS files -->
+    <script type="text/javascript" th:src="@{/assets/js/core/app.js}"></script>
+    <!--<script type="text/javascript" th:src="@{/js/pages/layout_navbar_secondary_fixed.js}"></script>-->
+
+    <script type="text/javascript" th:src="@{/assets/js/plugins/ui/ripple.min.js}"></script>
+    <th:block layout:fragment="customjs"></th:block>
+    <!-- /theme JS files -->
+
+</head>
+
+<body class="navbar-bottom">
+
+    <div th:replace="fragment/nav :: nav_top"></div>
+
+    <div th:replace="fragment/nav :: header_page"></div>
+
+    <div class="page-container">
+        <div class="page-content">
+            <div th:replace="fragment/nav :: sidebar_main"></div>
+
+            <div class="content-wrapper" layout:fragment="content">
+
+            </div>
+        </div>
+    </div>
+
+    <div th:replace="fragment/footer :: default"></div>
+
+</body>
+</html>
